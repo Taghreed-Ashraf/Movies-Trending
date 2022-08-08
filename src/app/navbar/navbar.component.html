@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink=""> <i class="fa-solid fa-clapperboard"></i> Trending</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul *ngIf="isLoggedIn"  class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="movies" routerLinkActive="active">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="tv" routerLinkActive="active">Tv Show</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="people" routerLinkActive="active">People</a>
+        </li>
+
+      </ul>
+
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+        <li *ngIf="isLoggedIn"  class="nav-item mx-3">
+          <a class="nav-link" routerLink="search" routerLinkActive="active">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+        </li>
+
+        <div *ngIf="isLoggedIn" class="socail-icons d-flex align-items-center">
+          <a href="https://www.linkedin.com/in/taghreed-ashraf-a13921241/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://github.com/Taghreed-Ashraf" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.facebook.com/taghreed.tota.7" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.youtube.com/c/MediaTechTaghreedAshraf" target="_blank"><i class="fab fa-youtube"></i></a>
+          
+        </div>
+
+        <li class="nav-item d-flex align-items-center mx-4 user">
+          <span *ngIf="isLoggedIn">Hello {{userInfo.getValue().first_name}}</span>
+        </li>
+
+        <li *ngIf="!isLoggedIn" class="nav-item">
+          <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
+        </li>
+        <li *ngIf="!isLoggedIn"  class="nav-item">
+          <a class="nav-link" routerLink="register" routerLinkActive="active">Register</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a (click)="logOut()" class="nav-link">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

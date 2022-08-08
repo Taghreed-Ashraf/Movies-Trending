@@ -1,0 +1,27 @@
+.bord {
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+.biography {
+  height: 55px;
+  overflow: hidden;
+}
+
+.show {
+  overflow: visible;
+  line-height: 50px;
+  height: auto;
+}
+
+@media screen and (max-width:568px)
+{
+  .details {
+    margin-left: 10px !important;
+  }
+  
+  .type {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

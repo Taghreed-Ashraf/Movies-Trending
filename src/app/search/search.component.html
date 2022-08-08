@@ -1,0 +1,34 @@
+<div class="container py-5">
+
+  <div class="search my-5 pt-3">
+    <input (input)="getSearch($event)" type="text" placeholder="Serach..." class="form-control w-50 mx-auto my-3">
+  </div>
+  
+  <div *ngIf="isLoading" class="loading w-50 m-auto text-center">
+    <app-spinner></app-spinner>
+  </div>
+
+  <div *ngIf="!isLoading" class="row my-5 justify-content-around">
+    
+      <div  *ngFor="let item of allTrending"  class="col-md-3 my-3 ">
+        <div class="item h-100">
+          <div class="card h-100" routerLink="/details/{{item.id}}/{{item.media_type}}">
+            <div class="image h-100 mt-2 position-relative">
+              <img [src]="item.poster_path == null? baseUrl+item.profile_path : baseUrl+item.poster_path" class="img-fluid mb-2 h-100" alt="">
+              <div *ngIf="item.vote_average" class="vote position-absolute top-0 end-0 bg-warning p-2">{{item.vote_average | number}}%</div>
+            <div class="layer">
+                <p>Click To Show More Details...</p>
+            </div>
+            </div>
+            <div class="card-title mt-2">
+              <h5 class="card-title text-center my-2">{{item.name == null? item.original_title : item.name}}</h5>
+              <p *ngIf="item.overview" class="card-text m-auto p-2 text-center">{{item.overview | cutTitle :10}}</p>
+              <p class=" text-center my-2">Media Type : <span>{{item.media_type}}</span></p>
+            </div>
+          </div>
+        </div>
+    </div>  
+
+  </div>
+</div>
+

@@ -1,0 +1,13 @@
+p span {
+  background-color: orange;
+  padding: 0 5px;
+  border: blue solid 1px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width:568px)
+{
+  input {
+    width: 75% !important;
+  }
+}

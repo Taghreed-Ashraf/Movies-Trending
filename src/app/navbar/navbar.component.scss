@@ -1,0 +1,69 @@
+.navbar {
+  background-color: #0F121B;
+}
+
+.fa-magnifying-glass {
+  font-size: 18px;
+}
+
+ul li a 
+{
+  font-size: 22px;
+  // margin: 0 7px;
+}
+
+.navbar-brand{
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+}
+
+.navbar-brand i {
+  color: #24BAEF !important;
+  font-size: 22px !important;
+}
+
+.active {
+  font-weight: 700;
+  color: #24BAEF !important;
+}
+
+.socail-icons i {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.navbar-toggler {
+  font-size: 25px;
+  padding: 0 !important;
+  background-color: #81c1f5 !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.user {
+  color: #0985eb;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  font-size: 20px;
+}
+
+.fa-youtube:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-facebook:hover {
+  color: rgb(85, 85, 240);
+  cursor: pointer;
+}
+
+.fa-linkedin-in:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.fa-github:hover {
+  color: grey;
+  cursor: pointer;
+}

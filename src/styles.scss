@@ -1,0 +1,94 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@700&display=swap');
+
+
+body {
+  background-color: #131722;
+  color: white;
+  font-family: 'Albert Sans', sans-serif;
+}
+
+.vote {
+  z-index: 100;
+}
+
+a , a:hover {
+  color: white !important;
+  cursor: pointer;
+}
+
+.line {
+  height: 2px;
+  background-color: #a8a8a83d;
+}
+
+
+.item {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card{
+  background-color: #181c27;
+}
+
+.image {
+  width: 95%;
+  margin: auto;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image .layer {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-color: rgb(20, 20, 20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.image:hover .layer {
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.layer p {
+  color: #15a9ee;
+  font-size: 15px;
+}
+
+.image .pic {
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+.image:hover .pic{
+  transform: scale(1.1);
+}
+
+h5 {
+  font-size: 15px;
+  color: rgb(223, 217, 217);
+}
+
+.card-text {
+  width: 90%;
+  color: gray;
+  font-size: 15px;
+  background-color: #131722;
+  border: solid 3px #131722;
+  border-radius: 10px;
+}
