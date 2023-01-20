@@ -1,0 +1,10 @@
+h2 {
+  font-family: 'Lobster', cursive;
+}
+
+@media screen and (max-width:568px)
+{
+  button {
+    width: 35% !important;
+  }
+}

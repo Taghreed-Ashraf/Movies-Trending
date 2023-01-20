@@ -1,0 +1,36 @@
+<div class="container py-5">
+
+  <div *ngIf="isLoading" class="loading w-50 m-auto text-center">
+    <app-spinner></app-spinner>
+  </div>
+
+  <div *ngIf="!isLoading"  class="row my-5">
+    <div class="col-md-4">
+      <div class="pic">
+        <img [src]="movieDetails.poster_path == null? baseUrl+movieDetails.profile_path : baseUrl+movieDetails.poster_path" class="img-fluid mb-2" alt="">
+      </div>
+    </div>
+  
+    <div class="col-md-8">
+      <div class="details ms-5">
+        <h2 class="my-3">{{movieDetails.name == null? movieDetails.original_title : movieDetails.name}}</h2>
+        <div class="type d-flex my-3">
+          <p class="bord bg-info me-3 p-2" *ngFor="let item of movieDetails.genres">{{item.name}}</p>
+        </div>
+        <p *ngIf="movieDetails.known_for_department" class="bord bg-info me-3 p-2 d-inline-block">{{movieDetails.known_for_department}}</p>
+        <h5 *ngIf="movieDetails.vote_average" class="mb-4">Vote : {{movieDetails.vote_average}}</h5>
+        <h5 *ngIf="movieDetails.vote_count" class="mb-4">Vote Count : {{movieDetails.vote_count}}</h5>
+        <h5 class="mb-4">popularity : {{movieDetails.popularity}}</h5>
+        <h5 *ngIf="movieDetails.first_air_date || movieDetails.release_date " class="mb-5">Release Date : {{ movieDetails.first_air_date == null?movieDetails.release_date : movieDetails.first_air_date}}</h5>
+        <h5 *ngIf="movieDetails.birthday" class="mb-4">birthday : {{ movieDetails.birthday}}</h5>
+        <h5 *ngIf="movieDetails.place_of_birth" class="mb-4">place Of Birth : {{ movieDetails.place_of_birth}}</h5>
+
+        <h5 *ngIf="movieDetails.biography" class="biography" [class.show]="show">biography : {{movieDetails.biography}}</h5>
+        <a *ngIf="movieDetails.biography" (click)="show = !show" class="text-info text-decoration-none">{{ show ? 'Show less': 'Show More...' }}</a>
+
+        <p *ngIf="movieDetails.overview" class="mt-3">Over View : {{movieDetails.overview}}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

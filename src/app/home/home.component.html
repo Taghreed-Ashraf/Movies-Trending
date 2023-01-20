@@ -1,0 +1,120 @@
+<header class="vh-100 d-flex align-items-end">
+  <div class="container-fluid ">
+
+    <owl-carousel-o [options]="customOptions">
+
+      <ng-container *ngFor="let movie of moviesList">
+        <ng-template carouselSlide id={{movie.id}}>
+          <img [src]="baseUrl+movie.poster_path" >
+        </ng-template>
+      </ng-container>
+
+    </owl-carousel-o>
+  </div>
+</header>
+
+<div class="container-fluid space pt-5">
+
+  <div *ngIf="isLoading" class="loading w-50 m-auto text-center">
+    <app-spinner></app-spinner>
+  </div>
+  <!-- ---------------------Movies------------------------- -->
+
+  <div *ngIf="!isLoading" class="row my-5 justify-content-around">
+
+    <div class="col-md-3 d-flex align-items-center justify-content-center">
+      <div class="welcome">
+          <div class="line w-25 mb-5"></div>
+          <h2>Trending <br> Movies <br> To Watch Now</h2>
+          <p>Most Movies Watched by days</p>
+          <div class="line w-100 mt-5"></div>
+
+      </div>
+    </div>
+  
+    <div *ngFor="let movie of moviesList" class="col-md-3 my-3 ">
+      <div class="item">
+        <div class="card" routerLink="/details/{{movie.id}}/movie">
+          <div class="image mt-2 position-relative">
+            <img [src]="baseUrl+movie.poster_path" class="card-img-top pic" [alt]='movie.title'>
+            <div class="vote position-absolute top-0 end-0 bg-warning p-2">{{movie.vote_average | number}}%</div>
+            <div class="layer">
+              <p>Click To Show More Details...</p>
+          </div>
+          </div>
+          <div class="card-title mt-2">
+            <h5 class="card-title text-center">{{movie.title}}</h5>
+            <p class="card-text m-auto p-2 text-center">{{movie.overview | cutTitle :10}}</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- ---------------------TV shows------------------------- -->
+
+
+<div class="row my-5 justify-content-around">
+
+  <div class="col-md-3 d-flex align-items-center justify-content-center">
+    <div class="welcome">
+        <div class="line w-25 mb-5"></div>
+        <h2>Trending <br> TV <br> To Watch Now</h2>
+        <p>Most TV Watched by days</p>
+        <div class="line w-100 mt-5"></div>
+
+    </div>
+  </div>
+
+  <div *ngFor="let item of tvShowsList" class="col-md-3 my-3 ">
+    <div class="item">
+      <div class="card" routerLink="/details/{{item.id}}/tv">
+        <div class="image mt-2 position-relative">
+          <img [src]="baseUrl+item.poster_path" class="card-img-top pic" [alt]='item.name'>
+          <div class="vote position-absolute top-0 end-0 bg-warning p-2">{{item.vote_average | number}}%</div>
+          <div class="layer">
+            <p>Click To Show More Details...</p>
+        </div>
+        </div>
+        <div class="card-title mt-2">
+          <h5 class="card-title text-center">{{item.name}}</h5>
+          <p class="card-text m-auto p-2 text-center">{{item.overview | cutTitle :9}}</p>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+<!-- ---------------------People------------------------- -->
+
+<div class="row my-5 justify-content-around">
+
+  <div class="col-md-3 d-flex align-items-center justify-content-center">
+    <div class="welcome">
+        <div class="line w-25 mb-5"></div>
+        <h2>Trending <br> People <br> To Watch Now</h2>
+        <p>Most People Watched by days</p>
+        <div class="line w-100 mt-5"></div>
+
+    </div>
+  </div>
+
+  <div *ngFor="let person of peopleList" class="col-md-3 my-3 ">
+    <div class="item h-100">
+      <div class="card h-100" routerLink="/details/{{person.id}}/person">
+        <div class="image mt-2 h-100">
+          <img [src]="person.profile_path == null? 'assets/image/not found.jpg' : baseUrl+person.profile_path" class="card-img-top pic h-100" [alt]='person.title'>
+          <div class="layer">
+            <p>Click To Show More Details...</p>
+        </div>
+        </div>
+        <div class="card-title mt-2">
+          <h5 class="card-title text-center">{{person.name}}</h5>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+
+</div>

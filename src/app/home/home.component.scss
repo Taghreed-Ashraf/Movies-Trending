@@ -1,0 +1,16 @@
+header {
+  background-image: url(../../assets/image/home.webp);
+  background-size: cover;
+}
+
+h2 {
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+}
+
+
+@media screen and (max-width:568px)
+{
+  .space {
+    padding-top: 10px !important;
+  }
+}

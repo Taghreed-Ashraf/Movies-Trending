@@ -1,0 +1,30 @@
+<div class="my-5 w-75 m-auto">
+  <h2 class="text-center pt-5">Sign In</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+
+    <div class="g-input my-3">
+      <label>Email :</label>
+      <input formControlName="email" type="email" class="form-control my-2" [ngClass]="{'is-valid' : loginForm.get('email')?.valid , 'is-invalid' : loginForm.get('email')?.invalid && loginForm.get('email')?.value}">
+      <div *ngIf="loginForm.get('email')?.touched&&loginForm.get('email')?.errors" class="text-danger">
+        <p *ngIf="loginForm.get('email')?.getError('required')">Email is Requierd</p>
+        <p *ngIf="loginForm.get('email')?.getError('email')">Email should be contain @ .</p>
+      </div>
+    </div>
+
+    <div class="g-input my-3">
+      <label>Password :</label>
+      <input formControlName="password" type="password" class="form-control my-2" [ngClass]="{'is-valid' : loginForm.get('password')?.valid , 'is-invalid' : loginForm.get('password')?.invalid && loginForm.get('password')?.value}">
+        <div *ngIf="loginForm.get('password')?.touched&&loginForm.get('password')?.errors" class="text-danger">
+          <p *ngIf="loginForm.get('password')?.getError('required')">Password is Requierd</p>
+          <p *ngIf="loginForm.get('password')?.getError('pattern')">It must contain at least eight characters including one uppercase letter, one lowercase letter, a number and a special character</p>
+        </div>    </div>
+
+    <button [ngClass]="{'bg-primary border-primary' : loginForm.valid}" [disabled]="loginForm.invalid" type="submit" class="btn
+      btn-secondary d-block w-25">
+      <span *ngIf="isLoading"> Waiting...</span>
+      <span *ngIf="!isLoading"> Sign In </span>
+    </button>
+
+  </form>
+</div>
